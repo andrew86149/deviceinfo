@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">DeviceInfo</string>
+    <string name="hello_world_device_info">Hello World! Device Info</string>
+</resources>
