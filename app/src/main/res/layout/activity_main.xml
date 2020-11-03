@@ -1,18 +1,135 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    style="@style/MyInfo"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <TextView
+    <HorizontalScrollView
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/hello_world_device_info"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:layout_height="wrap_content">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <ImageButton
+                android:id="@+id/bCpu"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:contentDescription="@string/info10"
+                android:onClick="bCpuClick"
+                app:srcCompat="@drawable/cpu" />
+
+            <ImageButton
+                android:id="@+id/bMemory"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:contentDescription="@string/info11"
+                app:srcCompat="@drawable/mem" />
+
+            <ImageButton
+                android:id="@+id/bOs"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:contentDescription="@string/info12"
+                app:srcCompat="@drawable/hdd" />
+
+            <ImageButton
+                android:id="@+id/bDisplay"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:contentDescription="@string/info9"
+                app:srcCompat="@drawable/disp" />
+
+            <ImageButton
+                android:id="@+id/bSensors"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:contentDescription="@string/info8"
+                app:srcCompat="@drawable/sens" />
+
+            <ImageButton
+                android:id="@+id/bCamera"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:contentDescription="@string/info7"
+                app:srcCompat="@drawable/cam" />
+
+            <ImageButton
+                android:id="@+id/bPhone"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:contentDescription="@string/info1"
+                app:srcCompat="@drawable/phone" />
+
+            <ImageButton
+                android:id="@+id/bNet"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:contentDescription="@string/info2"
+                app:srcCompat="@drawable/net" />
+
+            <ImageButton
+                android:id="@+id/bTraffic"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:contentDescription="@string/info3"
+                app:srcCompat="@drawable/inet" />
+
+            <ImageButton
+                android:id="@+id/bWifi"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:contentDescription="@string/info4"
+                app:srcCompat="@drawable/wifi" />
+
+            <ImageButton
+                android:id="@+id/bLocation"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:contentDescription="@string/info5"
+                app:srcCompat="@drawable/loc" />
+
+            <ImageButton
+                android:id="@+id/bEnv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:contentDescription="@string/info6"
+                app:srcCompat="@drawable/env" />
+        </LinearLayout>
+    </HorizontalScrollView>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+
+            <TextView
+                android:id="@+id/output"
+                style="@style/MyInfoText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/output" />
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

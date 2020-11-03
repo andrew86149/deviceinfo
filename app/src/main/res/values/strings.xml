@@ -1,4 +1,30 @@
 <resources>
     <string name="app_name">DeviceInfo</string>
     <string name="hello_world_device_info">Hello World! Device Info</string>
+    <string name="info1">Phone</string>
+    <string name="info2">Networks</string>
+    <string name="info3">Traffic</string>
+    <string name="info4">WifiInfo</string>
+    <string name="info5">Location</string>
+    <string name="info6">Env</string>
+    <string name="info7">Cam</string>
+    <string name="info8">Sensors</string>
+    <string name="info9">Display</string>
+    <string name="info10">CPU Info</string>
+    <string name="info11">Memory</string>
+    <string name="info12">OS Disc</string>
+    <string name="output">Отображение кратких данных об устройстве пользователя.Информация о процессоре,
+        об оперативной памяти, о датчиках, о сетях, о телефоне и т.д.
+    </string>
+    <string name="hello_quiz">Canberra is the capital of Australia</string>
+    <string name="false_button">Нет</string>
+    <string name="true_button">Да</string>
+    <string name="correct_toast">Correct! Правильно</string>
+    <string name="incorrect_toast">Incorrect! Нет</string>
+    <string name="next_button">Далее</string>
+    <string name="question_oceans">The Pacific Ocean is larger than the Atlantic Ocean.</string>
+    <string name="question_mideast">The Suez Canal connects the Red Sea and the Indian Ocean.</string>
+    <string name="question_africa">The source of the Nile River is in Egypt.</string>
+    <string name="question_americas">The Amazon River is the longest river in the Americas.</string>
+    <string name="question_asia">Lake Baikal is the world\'s oldest and deepest freshwater lake.</string>
 </resources>

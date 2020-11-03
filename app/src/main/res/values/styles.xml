@@ -7,4 +7,12 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+    <style name="MyInfo">
+        <item name="android:background">@color/dark_blue</item>
+    </style>
+    <style name="MyInfoText">
+        <item name="android:textColor">@color/yel</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
 </resources>
