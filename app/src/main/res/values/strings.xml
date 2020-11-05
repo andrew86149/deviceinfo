@@ -1,5 +1,11 @@
 <resources>
     <string name="app_name">DeviceInfo</string>
+
+    <string name="crime_title_hint">Enter a title for the crime.</string>
+    <string name="crime_title_label">Title</string>
+    <string name="crime_details_label">Details</string>
+    <string name="crime_solved_label">Solved?</string>
+
     <string name="hello_world_device_info">Hello World! Device Info</string>
     <string name="info1">Phone</string>
     <string name="info2">Networks</string>
@@ -31,4 +37,6 @@
     <string name="show_answer_button">Show Answer</string>
     <string name="cheat_button">Cheat!</string>
     <string name="judgment_toast">Cheating is wrong.</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
