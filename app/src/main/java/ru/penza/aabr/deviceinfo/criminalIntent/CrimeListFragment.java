@@ -1,10 +1,13 @@
 package ru.penza.aabr.deviceinfo.criminalIntent;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -31,6 +34,12 @@ public class CrimeListFragment extends Fragment {
         //return super.onCreateView(inflater, container, savedInstanceState);
     }
 
+    @Override
+    public void onResume() {
+        super.onResume();
+        updateUI();
+    }
+
     private void updateUI(){
         CrimeLab crimeLab = CrimeLab.get(getActivity());
         List<Crime> crimes = crimeLab.getmCrimes();
@@ -38,25 +47,38 @@ public class CrimeListFragment extends Fragment {
         mCrimeRecyclerView.setAdapter(mAdapter);
     }
 
-    private class CrimeHolder extends RecyclerView.ViewHolder{
+    private class CrimeHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
 
         private TextView mTitleTextView;
         private TextView mDateTextView;
+        private ImageView mSolvedImageView;
 
         private Crime mCrime;
 
         public CrimeHolder(View itemView) {
             super(itemView);
             //super(inflater.inflate(R.layout.list_item_crime,parent,false));
+            itemView.setOnClickListener(this);
 
             mTitleTextView = itemView.findViewById(R.id.crime_title_viw);
             mDateTextView = itemView.findViewById(R.id.crime_date_view);
+            mSolvedImageView = itemView.findViewById(R.id.crime_solve);
         }
 
         public void bind(Crime crime){
             mCrime = crime;
             mTitleTextView.setText(mCrime.getTitle());
             mDateTextView.setText(mCrime.getDate().toString());
+            mSolvedImageView.setVisibility(crime.isSolved() ? View.VISIBLE : View.GONE);
+        }
+
+        @Override
+        public void onClick(View view) {
+            //Intent intent = new Intent(getActivity(),CrimeActivity.class);
+            //Intent intent = CrimeActivity.newIntent(getActivity(),mCrime.getId());
+            Intent intent = CrimePagerActivity.newIntent(getActivity(),mCrime.getId());
+            startActivity(intent);
+            //Toast.makeText(getActivity(),mCrime.getTitle() + " clicked!",Toast.LENGTH_SHORT).show();
         }
     }
 
