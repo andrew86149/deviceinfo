@@ -1,8 +1,12 @@
 package ru.penza.aabr.deviceinfo.criminalIntent;
 
+import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
 
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -15,6 +19,7 @@ import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.RadioGroup;
 
+import java.util.Date;
 import java.util.UUID;
 
 import ru.penza.aabr.deviceinfo.R;
@@ -31,6 +36,10 @@ public class FragmentCrime extends Fragment {
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
 
+    public static final String ARG_CRIME_ID ="crime_id";
+    public static final String DIALOG_DATE ="DialogDate";
+
+    private static final int REQUEST_DATE = 0;
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
@@ -39,8 +48,6 @@ public class FragmentCrime extends Fragment {
     private EditText mTitleField;
     private Button mDateButton;
     private CheckBox mSolvedCheckBox;
-
-    public static final String ARG_CRIME_ID ="crime_id";
 
     public static FragmentCrime newInstance(UUID crimeId){
         Bundle args = new Bundle();
@@ -105,8 +112,18 @@ public class FragmentCrime extends Fragment {
             }
         });
 
-        mDateButton.setText(mCrime.getDate().toString());
-        mDateButton.setEnabled(false);
+        updateDate();
+        //mDateButton.setEnabled(false);
+        mDateButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                FragmentManager manager = getFragmentManager();
+                //DatePickerFragment dialog = new DatePickerFragment();
+                DatePickerFragment dialog = DatePickerFragment.newInstance(mCrime.getDate());
+                dialog.setTargetFragment(FragmentCrime.this,REQUEST_DATE);
+                dialog.show(manager,DIALOG_DATE);
+            }
+        });
 
         mTitleField.setText(mCrime.getTitle());
         mTitleField.addTextChangedListener(new TextWatcher() {
@@ -126,6 +143,23 @@ public class FragmentCrime extends Fragment {
             }
         });
         return v;
+    }
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        if (resultCode!= Activity.RESULT_OK){
+            return;
+        }
+        if (requestCode==REQUEST_DATE){
+            Date date = (Date) data.getSerializableExtra(DatePickerFragment.EXTRA_DATE);
+            mCrime.setDate(date);
+            updateDate();
+        }
+        //super.onActivityResult(requestCode, resultCode, data);
+    }
+
+    private void updateDate() {
+        mDateButton.setText(mCrime.getDate().toString());
     }
 
     @Override
