@@ -17,7 +17,10 @@ import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.EditText;
+import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.RadioGroup;
+import android.widget.Toast;
 
 import java.util.Date;
 import java.util.UUID;
@@ -48,6 +51,9 @@ public class FragmentCrime extends Fragment {
     private EditText mTitleField;
     private Button mDateButton;
     private CheckBox mSolvedCheckBox;
+    private Button mReportButton;
+    private ImageButton mPhotoButton;
+    private ImageView mPhotoView;
 
     public static FragmentCrime newInstance(UUID crimeId){
         Bundle args = new Bundle();
@@ -103,6 +109,17 @@ public class FragmentCrime extends Fragment {
         mTitleField = v.findViewById(R.id.crime_title);
         mDateButton = v.findViewById(R.id.crime_date);
         mSolvedCheckBox = v.findViewById(R.id.crime_solved);
+        mReportButton = v.findViewById(R.id.crime_report);
+        mPhotoButton = v.findViewById(R.id.crime_camera);
+        mPhotoView = v.findViewById(R.id.crime_photo);
+
+        mReportButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(getActivity(),getCrimeReport(),Toast.LENGTH_SHORT).show();
+                //Toast.makeText(getActivity(),mCrime.getTitle() + " clicked!",Toast.LENGTH_SHORT).show();
+            }
+        });
 
         mSolvedCheckBox.setChecked(mCrime.isSolved());
         mSolvedCheckBox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
@@ -162,8 +179,34 @@ public class FragmentCrime extends Fragment {
         mDateButton.setText(mCrime.getDate().toString());
     }
 
+    private String getCrimeReport(){
+        String solvedString = null;
+        if(mCrime.isSolved()){
+            solvedString = getString(R.string.crime_report_solved);
+        } else {
+            solvedString = getString(R.string.crime_report_unsolved);
+        }
+        String dateFormat = "EEE, MMM, dd";
+        String dateString = android.text.format.DateFormat.format(dateFormat,mCrime.getDate()).toString();
+
+        String suspect = mCrime.getSuspect();
+        if (suspect == null){
+            suspect = getString(R.string.crime_report_no_suspect);
+        } else {
+            suspect = getString(R.string.crime_report_suspect, suspect);
+        }
+        String report = getString(R.string.crime_report,mCrime.getTitle(),dateString,solvedString,suspect);
+        return report;
+    }
+
     @Override
     public void onResume() {
         super.onResume();
+    }
+
+    @Override
+    public void onPause() {
+        super.onPause();
+        CrimeLab.get(getActivity()).updateCrime(mCrime);
     }
 }
