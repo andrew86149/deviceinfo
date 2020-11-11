@@ -1,17 +1,19 @@
-<resources>
-    <string name="app_name">DeviceInfo</string>
+<?xml version="1.0" encoding="utf-8"?>
 
-    <string name="crime_title_hint">Enter a title for the crime.</string>
-    <string name="crime_title_label">Title</string>
-    <string name="crime_details_label">Details</string>
-    <string name="crime_solved_label">Solved?</string>
-    <string name="date_picker_title">Date of crime:</string>
-    <string name="new_crime">New Crime</string>
-    <string name="show_subtitle">Show Subtitle</string>
-    <string name="hide_subtitle">Hide Subtitle</string>
+<resources>
+    <string name="app_name">Информация о приборе</string>
+
+    <string name="crime_title_hint">ВВедите название события.</string>
+    <string name="crime_title_label">Название</string>
+    <string name="crime_details_label">Подробности</string>
+    <string name="crime_solved_label">Решено?</string>
+    <string name="date_picker_title">Дата события:</string>
+    <string name="new_crime">Новый эпизод</string>
+    <string name="show_subtitle">Показать подзаголовок</string>
+    <string name="hide_subtitle">Скрыть подзаголовок</string>
     <string name="subtitle_format">%1$d crimes</string>
-    <string name="crime_suspect_text">Choose Suspect</string>
-    <string name="crime_report_text">Send Crime Report</string>
+    <string name="crime_suspect_text">Выбрать подозреваемого</string>
+    <string name="crime_report_text">Послать отчёт</string>
     <string name="crime_report">%1$s! The crime was discovered on %2$s. %3$s, and %4$s</string>
     <string name="crime_report_solved">The case is solved</string>
     <string name="crime_report_unsolved">The case is not solved</string>
@@ -52,5 +54,4 @@
     <string name="cheat_button">Cheat!</string>
     <string name="judgment_toast">Cheating is wrong.</string>
     <string name="todo">description</string>
-
 </resources>
