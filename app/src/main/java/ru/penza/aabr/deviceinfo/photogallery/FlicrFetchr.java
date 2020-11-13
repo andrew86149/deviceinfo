@@ -20,6 +20,46 @@ public class FlicrFetchr {
     private static final String TAG = "FlickrFetchr";
     private static final String API_KEY = "0ae791b62251a2f3ac20ecf5e9d3553b";
 
+    private static final String FETCH_RECENTS_METHOD = "flickr.photos.getRecent";
+    private static final String SEARCH_METHOD = "flickr.photos.search";
+    private static final Uri ENDPOINT = Uri.parse("https://api.flickr.com/services/rest/")
+            .buildUpon()
+            .appendQueryParameter("api_key", API_KEY)
+            .appendQueryParameter("format", "json")
+            .appendQueryParameter("nojsoncallback", "1")
+            .appendQueryParameter("extras", "url_s")
+            .build();
+
+    private List<GalleryItem> downloadGalleryItems(String url){
+        List<GalleryItem> items = new ArrayList<>();
+        try{
+            String jsonString = getUrlString(url);
+            Log.i(TAG,"Received JSON: " + jsonString);
+            JSONObject jsonBody = new JSONObject(jsonString);
+            parseItems(items,jsonBody);
+        }catch (IOException | JSONException ioe){
+            Log.e(TAG,"Failed to fetch items or parse JSON",ioe);
+        }
+        return items;
+    }
+
+    private String buildUrl(String method,String query){
+        Uri.Builder uriBuilder = ENDPOINT.buildUpon().appendQueryParameter("method",method);
+        if (method.equals(SEARCH_METHOD)){
+            uriBuilder.appendQueryParameter("text",query);
+        }
+        return uriBuilder.build().toString();
+    }
+
+    public List<GalleryItem> fetchRecentPhotos(){
+        String url = buildUrl(FETCH_RECENTS_METHOD, null);
+        return downloadGalleryItems(url);
+    }
+    public List<GalleryItem> searchPhotos(String query){
+        String url = buildUrl(SEARCH_METHOD, query);
+        return downloadGalleryItems(url);
+    }
+/*
     public List<GalleryItem> fetchItems(){
         List<GalleryItem> items = new ArrayList<>();
         try{
@@ -41,7 +81,7 @@ public class FlicrFetchr {
         return items;
     }
 
-    /*public void fetchItems(){
+    public void fetchItems(){
         try{
             String url = Uri.parse("https://api.flickr.com/services/rest/")
                     .buildUpon()
