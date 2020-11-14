@@ -3,12 +3,18 @@ package ru.penza.aabr.deviceinfo.photogallery;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 
+import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 
 import ru.penza.aabr.deviceinfo.R;
 import ru.penza.aabr.deviceinfo.criminalIntent.SingleFragmentActivity;
 
 public class PhotoGalleryActivity extends SingleFragmentActivity {
+
+    public static Intent newIntent(Context context){
+        return new Intent(context,PhotoGalleryActivity.class);
+    }
 
     @Override
     protected Fragment createFragment() {
