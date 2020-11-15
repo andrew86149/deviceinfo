@@ -29,8 +29,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 import ru.penza.aabr.deviceinfo.R;
-
-public class PhotoGalleryFragment extends Fragment {
+// Fragment
+public class PhotoGalleryFragment extends VisibleFragment {
 
     private static final String TAG = "PhotoGalleryFragment";
 
