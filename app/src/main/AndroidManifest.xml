@@ -2,12 +2,14 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="ru.penza.aabr.deviceinfo">
 
-    <permission android:name="ru.penza.aabr.deviceinfo.photogallery.PRIVATE"
-        android:protectionLevel="signature"/>
+    <permission
+        android:name="ru.penza.aabr.deviceinfo.photogallery.PRIVATE"
+        android:protectionLevel="signature" />
+
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-    <uses-permission android:name="android.permission.INTERNET"/>
-    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
-    <uses-permission android:name="ru.penza.aabr.deviceinfo.photogallery.PRIVATE"/>
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+    <uses-permission android:name="ru.penza.aabr.deviceinfo.photogallery.PRIVATE" />
 
     <uses-feature
         android:name="android.hardware.camera2"
@@ -20,23 +22,30 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".photogallery.PhotoGalleryActivity">
+        <activity android:name=".starbuzz.StopwatchActivity"></activity>
+        <activity android:name=".starbuzz.DetailActivity" />
+        <activity android:name=".starbuzz.WorkoutActivity" />
+        <activity android:name=".starbuzz.DrinkActivity" />
+        <activity android:name=".starbuzz.TopLevelActivity" />
+        <activity
+            android:name=".starbuzz.DrinkCategoryActivity"
+            android:label="@string/title_activity_drink_category" />
+        <activity android:name=".EnterActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".photogallery.PhotoGalleryActivity" />
         <activity
             android:name=".criminalIntent.CrimePagerActivity"
             android:parentActivityName=".criminalIntent.CrimeListActivity" />
         <activity android:name=".criminalIntent.CrimeActivity" />
         <activity android:name=".CheatActivity" />
         <activity android:name=".QuizActivity" />
-        <activity android:name=".MainActivity" />
-        <activity android:name=".criminalIntent.CrimeListActivity">
-
-        </activity>
+        <activity android:name=".FirstActivityBad" />
+        <activity android:name=".criminalIntent.CrimeListActivity" />
         <activity android:name=".photogallery.PhotoPageActivity" />
 
         <provider
@@ -48,15 +57,19 @@
                 android:name="android.support.FILE_PROVIDER_PATHS"
                 android:resource="@xml/files" />
         </provider>
+
         <service android:name=".photogallery.PollService" />
-        <receiver android:name=".photogallery.StartupReceiver" >
+
+        <receiver android:name=".photogallery.StartupReceiver">
             <intent-filter>
-                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
             </intent-filter>
         </receiver>
-        <receiver android:name=".photogallery.NotificationReceiver" android:exported="false">
+        <receiver
+            android:name=".photogallery.NotificationReceiver"
+            android:exported="false">
             <intent-filter android:priority="-999">
-                <action android:name="ru.penza.aabr.deviceinfo.photogallery.SHOW_NOTIFICATION"/>
+                <action android:name="ru.penza.aabr.deviceinfo.photogallery.SHOW_NOTIFICATION" />
             </intent-filter>
         </receiver>
     </application>

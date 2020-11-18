@@ -1,6 +1,28 @@
 <resources>
     <string name="app_name">DeviceInfo</string>
 
+    <string name="starbuzz_logo">Starbuzz logo</string>
+    <string name="title_activity_drink_category">Drink Category</string>
+    <string-array name="starbuzz">
+        <item>Drinks</item>
+        <item>Food</item>
+        <item>Stores</item>
+    </string-array>
+
+    <string-array name="options">
+        <item>Starbuzz</item>
+        <item>PhotoGallery</item>
+        <item>StopWatch</item>
+        <item>Crime Intent</item>
+        <item>BitsAndPizzas</item>
+        <item>Workout</item>
+        <item>Joke</item>
+    </string-array>
+
+    <string name="start">Start</string>
+    <string name="stop">Stop</string>
+    <string name="reset">Reset</string>
+
     <string name="search">Search</string>
     <string name="clear_search">Clear Search</string>
     <string name="start_polling">Start polling</string>
@@ -59,5 +81,7 @@
     <string name="cheat_button">Cheat!</string>
     <string name="judgment_toast">Cheating is wrong.</string>
     <string name="todo">description</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 
 </resources>

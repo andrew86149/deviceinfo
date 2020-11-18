@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<fragment xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/list_frag"
+    class="ru.penza.aabr.deviceinfo.starbuzz.WorkoutListFragment"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"/>
+<!--
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".starbuzz.WorkoutActivity">
+
+    <fragment
+        android:id="@+id/list_frag"
+        class="ru.penza.aabr.deviceinfo.starbuzz.WorkoutListFragment"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="2" />
+
+        <FrameLayout
+            android:id="@+id/frag_container"
+            android:layout_width="0dp"
+            android:layout_weight="3"
+            android:layout_height="match_parent"/>
+        <fragment
+            android:id="@+id/detail_frag"
+            android:name="ru.penza.aabr.deviceinfo.starbuzz.WorkoutDetailFragment"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="3" />
+</LinearLayout>-->
