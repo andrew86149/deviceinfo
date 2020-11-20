@@ -10,6 +10,7 @@ import android.widget.Toast;
 
 import ru.penza.aabr.deviceinfo.criminalIntent.CrimeListActivity;
 import ru.penza.aabr.deviceinfo.photogallery.PhotoGalleryActivity;
+import ru.penza.aabr.deviceinfo.starbuzz.BitsAndPizzasActivity;
 import ru.penza.aabr.deviceinfo.starbuzz.StopwatchActivity;
 import ru.penza.aabr.deviceinfo.starbuzz.TopLevelActivity;
 import ru.penza.aabr.deviceinfo.starbuzz.WorkoutActivity;
@@ -22,6 +23,7 @@ public class EnterActivity extends AppCompatActivity {
     private Button mButton5;
     private Button mButton6;
     private Button mButton7;
+    private Button mButton8;
 
 
     @Override
@@ -34,6 +36,15 @@ public class EnterActivity extends AppCompatActivity {
         mButton5 = findViewById(R.id.button5);
         mButton6 = findViewById(R.id.button6);
         mButton7 = findViewById(R.id.button7);
+        mButton8 = findViewById(R.id.button8);
+
+        mButton8.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(EnterActivity.this, BitsAndPizzasActivity.class);
+                startActivity(intent);
+            }
+        });
 
         mButton6.setOnClickListener(new View.OnClickListener() {
             @Override

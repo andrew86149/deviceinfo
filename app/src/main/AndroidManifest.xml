@@ -22,7 +22,13 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".starbuzz.StopwatchActivity"></activity>
+        <activity
+            android:name=".starbuzz.OrderActivity"
+            android:label="@string/order" android:parentActivityName=".starbuzz.BitsAndPizzasActivity"/>
+        <activity
+            android:name=".starbuzz.BitsAndPizzasActivity"
+            android:label="@string/pizzas" />
+        <activity android:name=".starbuzz.StopwatchActivity" />
         <activity android:name=".starbuzz.DetailActivity" />
         <activity android:name=".starbuzz.WorkoutActivity" />
         <activity android:name=".starbuzz.DrinkActivity" />
