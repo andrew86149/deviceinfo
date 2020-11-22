@@ -22,9 +22,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".starbuzz.FoodActivity"></activity>
         <activity
             android:name=".starbuzz.OrderActivity"
-            android:label="@string/order" android:parentActivityName=".starbuzz.BitsAndPizzasActivity"/>
+            android:label="@string/order"
+            android:parentActivityName=".starbuzz.BitsAndPizzasActivity" />
         <activity
             android:name=".starbuzz.BitsAndPizzasActivity"
             android:label="@string/pizzas" />
@@ -53,6 +55,9 @@
         <activity android:name=".FirstActivityBad" />
         <activity android:name=".criminalIntent.CrimeListActivity" />
         <activity android:name=".photogallery.PhotoPageActivity" />
+        <activity
+            android:name=".starbuzz.DrinkCategory"
+            android:label="@string/title_activity_drink_category" />
 
         <provider
             android:name="androidx.core.content.FileProvider"

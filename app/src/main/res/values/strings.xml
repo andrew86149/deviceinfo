@@ -9,6 +9,7 @@
 
     <string-array name="starbuzz">
         <item>Drinks</item>
+        <item>NewDrinks</item>
         <item>Food</item>
         <item>Stores</item>
     </string-array>
@@ -44,6 +45,9 @@
         <item>Pasta</item>
         <item>Stores</item>
     </string-array>
+
+    <string name="favorite">Favorite</string>
+    <string name="favorites">Your favorite drinks:</string>
 
     <string name="open_drawer">Open drawer</string>
     <string name="close_drawer">Close drawer</string>
