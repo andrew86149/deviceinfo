@@ -18,7 +18,7 @@ import java.util.List;
 public class FlicrFetchr {
 
     private static final String TAG = "FlickrFetchr";
-    private static final String API_KEY = "0ae791b62251a2f3ac20ecf5e9d3553b";
+    private static final String API_KEY = "1ae791a62251adf3ac26ecf5e5d2513b";
 
     private static final String FETCH_RECENTS_METHOD = "flickr.photos.getRecent";
     private static final String SEARCH_METHOD = "flickr.photos.search";
